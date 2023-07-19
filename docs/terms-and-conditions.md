@@ -1,4 +1,4 @@
-**Terms & Conditions**
+## Terms & Conditions
 
 By downloading or using the Alexa skill, these terms will automatically apply to you – you should make sure therefore that you read them carefully before using the Alexa skill. You’re not allowed to copy or modify the Alexa skill, any part of the Alexa skill, or our trademarks in any way. You’re not allowed to attempt to extract the source code of the Alexa skill, and you also shouldn’t try to translate the Alexa skill into other languages or make derivative versions. The Alexa skill itself, and all the trademarks, copyright, database rights, and other intellectual property rights related to it, still belong to Gonzalo Hirsch.
 

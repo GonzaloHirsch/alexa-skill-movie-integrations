@@ -1,4 +1,4 @@
-**Privacy Policy**
+## Privacy Policy
 
 Gonzalo Hirsch built the Movie Map Alexa skill as an Open Source app. This SERVICE is provided by Gonzalo Hirsch at no cost and is intended for use as is.
 
