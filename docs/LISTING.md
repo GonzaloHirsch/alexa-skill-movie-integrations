@@ -39,3 +39,6 @@ This is everything necessary for the listing:
     Alexa, open my movie map to find where I can buy Iron Man 2.
     Alexa, open my movie map and pick a random movie.
     ```
+
+https://gonzalohirsch.github.io/alexa-skill-movie-integrations/privacy-policy
+https://gonzalohirsch.github.io/alexa-skill-movie-integrations/terms-and-conditions
