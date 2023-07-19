@@ -1,4 +1,4 @@
-# Movie Map
+# [Movie Map](https://github.com/GonzaloHirsch/alexa-skill-movie-integrations)
 
 Movie Map is a handy Alexa skill that helps you find where to stream, rent, or buy movies in your country without needing to browse or search for it.
 
