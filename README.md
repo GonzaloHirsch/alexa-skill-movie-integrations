@@ -1,3 +1,7 @@
 # alexa-skill-movie-integrations
 
-[![pages-build-deployment](https://github.com/GonzaloHirsch/alexa-skill-movie-integrations/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/GonzaloHirsch/alexa-skill-movie-integrations/actions/workflows/pages/pages-build-deployment)
+## Skill Development
+
+Skills use handlers, which denote 2 main functions within them.
+- `canHandle()` --> Returns `true` if the conditions are met for the handler to handle the call.
+- `handle()` --> Handles the request and returns a response to Alexa.
