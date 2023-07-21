@@ -14,14 +14,18 @@ data "aws_iam_policy_document" "assume_role" {
 
 # Actual role for the lambda
 resource "aws_iam_role" "default" {
-  name                = "alexa-skill-movies-lambda-role"
+  name                = local.role_name
   assume_role_policy  = data.aws_iam_policy_document.assume_role.json
   managed_policy_arns = [aws_iam_policy.dynamo_db.arn, aws_iam_policy.logs.arn]
+  tags = {
+    Name = local.role_name
+    app  = "movie-map.alexa.gonzalohirsch.com"
+  }
 }
 
 # Policies attached to the role
 resource "aws_iam_policy" "dynamo_db" {
-  name = "policy-alexa-lambda-dynamod"
+  name = local.policy_dynamo_name
 
   policy = jsonencode({
     "Version" : "2012-10-17",
@@ -39,10 +43,15 @@ resource "aws_iam_policy" "dynamo_db" {
       }
     ]
   })
+
+  tags = {
+    Name = local.policy_dynamo_name
+    app  = "movie-map.alexa.gonzalohirsch.com"
+  }
 }
 
 resource "aws_iam_policy" "logs" {
-  name = "policy-alexa-lambda-execution"
+  name = local.policy_logs_name
 
   policy = jsonencode({
     "Version" : "2012-10-17",
@@ -64,4 +73,9 @@ resource "aws_iam_policy" "logs" {
       }
     ]
   })
+
+  tags = {
+    Name = local.policy_logs_name
+    app  = "movie-map.alexa.gonzalohirsch.com"
+  }
 }

@@ -25,11 +25,20 @@ resource "aws_lambda_function" "default" {
       BACKEND_KEY = var.backend_key
     }
   }
+
+  tags = {
+    Name = local.function_name
+    app  = "movie-map.alexa.gonzalohirsch.com"
+  }
 }
 
 resource "aws_cloudwatch_log_group" "default" {
   name              = "/aws/lambda/${local.function_name}"
   retention_in_days = 90
+  tags = {
+    Name = "/aws/lambda/${local.function_name}"
+    app  = "movie-map.alexa.gonzalohirsch.com"
+  }
 }
 
 # create the Alexa trigger
