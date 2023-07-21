@@ -8,17 +8,17 @@ let client;
  * Performs a lazy initialization of the client. If the client is already created, just use it.
  */
 const createClient = () => {
-    if (!client) {
-        client = axios.create({
-            baseURL: constants.API.URL,
-            timeout: 1000,
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${constants.API.KEY}`,
-            }
-        });
-    }
-}
+  if (!client) {
+    client = axios.create({
+      baseURL: constants.API.URL,
+      timeout: 1000,
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${constants.API.KEY}`
+      }
+    });
+  }
+};
 
 /**
  * Search for a movie using the name.
@@ -26,14 +26,14 @@ const createClient = () => {
  * @returns a response based on the response given by the TMDB API (https://developer.themoviedb.org/reference/search-movie)
  */
 const searchMovie = async (name) => {
-    createClient();
-    return await client.get("search/movie", {
-        params: {
-            query: name,
-            adult: false
-        }
-    });
-}
+  createClient();
+  return await client.get('search/movie', {
+    params: {
+      query: name,
+      adult: false
+    }
+  });
+};
 
 /**
  * Get a movie using the movie ID.
@@ -41,15 +41,18 @@ const searchMovie = async (name) => {
  * @returns a movie as per TMDB API (https://developer.themoviedb.org/reference/movie-details) or undefined if not found.
  */
 const getMovie = async (id) => {
-    createClient();
-    return await client.get(`movie/${id}`).then(response => {
-        console.log(response, response.data);
-        return response.data;
-    }).catch(error => {
-        console.error(`Handled error: ${error.message}`);
-        return undefined;
+  createClient();
+  return await client
+    .get(`movie/${id}`)
+    .then((response) => {
+      console.log(response, response.data);
+      return response.data;
+    })
+    .catch((error) => {
+      console.error(`Handled error: ${error.message}`);
+      return undefined;
     });
-}
+};
 
 /**
  * Gets the streaming services for a given movie, for the specific action (stream, buy, rent) given the country code as a filter.
@@ -59,25 +62,34 @@ const getMovie = async (id) => {
  * @returns the list of providers or empty. Can be undefined if the country is not valid.
  */
 const getMovieLocation = async (movieId, country, action) => {
-    createClient();
-    return await client.get(`movie/${movieId}/watch/providers`).then(response => {
-        // console.log(country, response.data?.results?.[country])
-        switch (action) {
-            case constants.ACTIONS.BUY: return response.data?.results?.[country]?.buy;
-            case constants.ACTIONS.RENT: return response.data?.results?.[country]?.rent;
-            case constants.ACTIONS.STREAM:
-            default:
-                return [].concat(response.data?.results?.[country]?.flatrate || [], response.data?.results?.[country]?.free || [], response.data?.results?.[country]?.ads || []);
-        }
-    }).catch(error => {
-        console.error(error.toJSON());
-        // Return empty list of places
-        return [];
+  createClient();
+  return await client
+    .get(`movie/${movieId}/watch/providers`)
+    .then((response) => {
+      // console.log(country, response.data?.results?.[country])
+      switch (action) {
+        case constants.ACTIONS.BUY:
+          return response.data?.results?.[country]?.buy;
+        case constants.ACTIONS.RENT:
+          return response.data?.results?.[country]?.rent;
+        case constants.ACTIONS.STREAM:
+        default:
+          return [].concat(
+            response.data?.results?.[country]?.flatrate || [],
+            response.data?.results?.[country]?.free || [],
+            response.data?.results?.[country]?.ads || []
+          );
+      }
+    })
+    .catch((error) => {
+      console.error(error.toJSON());
+      // Return empty list of places
+      return [];
     });
-}
+};
 
 module.exports = {
-    searchMovie,
-    getMovie,
-    getMovieLocation
-}
+  searchMovie,
+  getMovie,
+  getMovieLocation
+};
