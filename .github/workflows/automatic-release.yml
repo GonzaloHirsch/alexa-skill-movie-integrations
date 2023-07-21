@@ -5,11 +5,11 @@ run-name: ${{ github.actor }} is automatically releasing 🚀
 # Only run on push to master
 on:
   workflow_dispatch:
-  inputs:
-    logLevel:
-      description: 'Log level'
-      required: true
-      default: 'warning'
+    inputs:
+      logLevel:
+        description: 'Log level'
+        required: true
+        default: 'warning'
   push:
     branches:
       - master
@@ -31,7 +31,7 @@ jobs:
         working-directory: terraform
       # Initialize Terraform
       - name: 'Terraform Init'
-        run: terraform init -backend-config="region=${{ secrets.region }}"  -backend-config="bucket=${{ secrets.bucket }}" -backend-config="access_key=${{ secrets.ACCESS_KEY }}" -backend-config="secret_key=${{ secrets.SECRET_ACCESS_KEY }}"
+        run: terraform init -backend-config="access_key=${{ secrets.ACCESS_KEY }}" -backend-config="secret_key=${{ secrets.SECRET_ACCESS_KEY }}"
         working-directory: terraform
       # Validate the Terraform configuration
       - name: 'Terraform Validate'
@@ -43,10 +43,10 @@ jobs:
         working-directory: terraform
         # Make sure we have the correct environment variables as secrets
         env:
-          TF_VAR_project_id: ${{ secrets.project_id }}
-          TF_VAR_region: ${{ secrets.region }}
-          TF_VAR_backend_url: ${{ secrets.backend_url }}
-          TF_VAR_backend_key: ${{ secrets.backend_key }}
+          TF_VAR_project_id: ${{ secrets.PROJECT_ID }}
+          TF_VAR_region: ${{ secrets.REGION }}
+          TF_VAR_backend_url: ${{ secrets.BACKEND_URL }}
+          TF_VAR_backend_key: ${{ secrets.BACKEND_KEY }}
 
   # As per https://github.com/semantic-release/semantic-release/blob/master/docs/recipes/ci-configurations/github-actions.md
   release:

@@ -24,7 +24,7 @@ jobs:
         working-directory: terraform
       # Initialize Terraform
       - name: 'Terraform Init'
-        run: terraform init -backend-config="region=${{ secrets.region }}"  -backend-config="bucket=${{ secrets.bucket }}" -backend-config="access_key=${{ secrets.ACCESS_KEY }}" -backend-config="secret_key=${{ secrets.SECRET_ACCESS_KEY }}"
+        run: terraform init -backend-config="access_key=${{ secrets.ACCESS_KEY }}" -backend-config="secret_key=${{ secrets.SECRET_ACCESS_KEY }}"
         working-directory: terraform
       # Validate the Terraform configuration
       - name: 'Terraform Validate'
