@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Source code for an Alexa skill that interacts with The Movie DB API in order to provide a service to look up stream locations based on the device country.",
   "main": "src/index.js",
+  "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier --config .prettierrc 'src/**/*.js' --write",
