@@ -7,8 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier --config .prettierrc 'src/**/*.js' --write",
     "lint": "npx eslint src",
-    "tf_format": "cd terraform && terraform fmt -recursive && cd ..",
-    "tf_lint": "cd terraform && terraform fmt -check -recursive && cd .."
+    "tf_format": "cd terraform && terraform fmt -recursive",
+    "tf_lint": "cd terraform && terraform fmt -check -recursive",
+    "tf_apply": "cd terraform && terraform apply -auto-approve"
   },
   "repository": {
     "type": "git",
