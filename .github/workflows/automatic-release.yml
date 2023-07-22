@@ -2,17 +2,18 @@
 name: Automatic Release
 run-name: ${{ github.actor }} is automatically releasing 🚀
 
-# Only run on push to master
 on:
+  # Run automatically on main pushes
+  push:
+    branches:
+      - main
+  # Or run on manual trigger
   workflow_dispatch:
     inputs:
       logLevel:
         description: 'Log level'
         required: true
         default: 'warning'
-  push:
-    branches:
-      - master
 
 jobs:
   terraform_deploy:

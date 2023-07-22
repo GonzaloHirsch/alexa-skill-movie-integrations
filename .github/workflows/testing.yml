@@ -5,7 +5,7 @@ run-name: ${{ github.actor }} is testing 🚀
 # Only run on push to master
 on:
   pull_request:
-    types: [synchronize, open]
+    types: [synchronize, opened]
 
 jobs:
   terraform_test:
