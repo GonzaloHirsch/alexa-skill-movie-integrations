@@ -1,7 +1,7 @@
 {
   "name": "alexa-skill-movie-integrations",
   "version": "1.0.0",
-  "description": "",
+  "description": "Source code for an Alexa skill that interacts with The Movie DB API in order to provide a service to look up stream locations based on the device country.",
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -20,7 +20,12 @@
   "bugs": {
     "url": "https://github.com/GonzaloHirsch/alexa-skill-movie-integrations/issues"
   },
-  "homepage": "https://github.com/GonzaloHirsch/alexa-skill-movie-integrations#readme",
+  "homepage": "https://gonzalohirsch.github.io/alexa-skill-movie-integrations/",
+  "release": {
+    "branches": [
+      "main"
+    ]
+  },
   "dependencies": {
     "ask-sdk-core": "2.14.0",
     "axios": "1.4.0"
