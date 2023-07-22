@@ -20,6 +20,7 @@
                     "docs/changelog.md"
                 ]
             }
-        ]
+        ],
+        "@semantic-release/github"
     ]
 }

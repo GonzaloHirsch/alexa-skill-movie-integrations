@@ -25,6 +25,25 @@
   "release": {
     "branches": [
       "main"
+    ],
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      [
+        "@semantic-release/changelog",
+        {
+          "changelogFile": "docs/changelog.md"
+        }
+      ],
+      [
+        "@semantic-release/git",
+        {
+          "assets": [
+            "docs/changelog.md"
+          ]
+        }
+      ],
+      "@semantic-release/github"
     ]
   },
   "dependencies": {
@@ -35,6 +54,7 @@
     "@semantic-release/changelog": "6.0.3",
     "@semantic-release/commit-analyzer": "10.0.1",
     "@semantic-release/git": "10.0.1",
+    "@semantic-release/github": "9.0.4",
     "@semantic-release/release-notes-generator": "11.0.4",
     "eslint": "8.45.0",
     "eslint-config-google": "0.14.0",
