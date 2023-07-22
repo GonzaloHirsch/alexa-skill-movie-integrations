@@ -7,8 +7,12 @@ const SessionEndedRequestHandler = {
       'SessionEndedRequest'
     );
   },
+  // Any clean-up logic goes here.
   handle(handlerInput) {
-    // Any clean-up logic goes here.
+    // Make sure to flag to close the session.
+    const sessionAttributes =
+      handlerInput.attributesManager.getSessionAttributes();
+    sessionAttributes.keepSessionOpen = false;
     return handlerInput.responseBuilder.getResponse();
   }
 };
