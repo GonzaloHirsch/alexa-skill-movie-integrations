@@ -74,6 +74,11 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
+      # Make sure all the dependencies are ok and installed
+      - name: 'Installing dependencies'
+        run: npm ci
+      - name: 'Verifying the signatures'
+        run: npm audit signatures
       # Install semantic release
       - name: 'Releasing via Semantic Release'
         run: npx semantic-release@21
