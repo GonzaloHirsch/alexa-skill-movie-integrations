@@ -39,7 +39,7 @@ resource "aws_iam_policy" "dynamo_db" {
           "dynamodb:Scan",
           "dynamodb:UpdateItem"
         ],
-        "Resource" : "arn:aws:dynamodb:${var.region}:${var.project_id}:table/*"
+        "Resource" : "arn:aws:dynamodb:${var.region}:${var.account_id}:table/*"
       }
     ]
   })
@@ -59,7 +59,7 @@ resource "aws_iam_policy" "logs" {
       {
         "Effect" : "Allow",
         "Action" : "logs:CreateLogGroup",
-        "Resource" : "arn:aws:logs:${var.region}:${var.project_id}:*"
+        "Resource" : "arn:aws:logs:${var.region}:${var.account_id}:*"
       },
       {
         "Effect" : "Allow",
@@ -68,7 +68,7 @@ resource "aws_iam_policy" "logs" {
           "logs:PutLogEvents"
         ],
         "Resource" : [
-          "arn:aws:logs:${var.region}:${var.project_id}:log-group:/aws/lambda/${local.function_name}:*"
+          "arn:aws:logs:${var.region}:${var.account_id}:log-group:/aws/lambda/${local.function_name}:*"
         ]
       }
     ]
