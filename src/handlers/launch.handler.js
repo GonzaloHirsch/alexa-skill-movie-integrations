@@ -11,7 +11,7 @@ const LaunchRequestHandler = {
   },
   handle(handlerInput) {
     console.log(util.inspect(handlerInput.requestEnvelope, true, null, false));
-    const speechText = locale.LAUNCH[`${getRandom(0, 3)}`];
+    const speechText = locale.LAUNCH[getRandom(0, 3)];
     const cardText = speechText;
     console.log(speechText, locale);
 
