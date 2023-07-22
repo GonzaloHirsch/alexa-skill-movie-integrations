@@ -51,8 +51,9 @@ jobs:
         working-directory: terraform
         # Make sure we have the correct environment variables as secrets
         env:
-          TF_VAR_project_id: ${{ secrets.PROJECT_ID }}
+          TF_VAR_account_id: ${{ secrets.account_id }}
           TF_VAR_region: ${{ secrets.REGION }}
+          TF_VAR_profile: ${{ secrets.PROFILE }}
           TF_VAR_backend_url: ${{ secrets.BACKEND_URL }}
           TF_VAR_backend_key: ${{ secrets.BACKEND_KEY }}
 
