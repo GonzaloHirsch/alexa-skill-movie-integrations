@@ -26,6 +26,13 @@ jobs:
       # Setting up Terraform to be able to use it afterwards
       - name: 'Terraform Setup'
         uses: hashicorp/setup-terraform@v2
+      # Setting up Node, 18 is LTS
+      - name: 'Setting up Node'
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: 'Installing dependencies'
+        run: npm install
       # Setting up the AWS credentials
       - name: 'Configure AWS credentials'
         uses: aws-actions/configure-aws-credentials@v2
