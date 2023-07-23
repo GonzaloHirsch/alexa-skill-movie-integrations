@@ -14,9 +14,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/GonzaloHirsch/alexa-skill-movie-integrations.git"
+    "url": "https://github.com/GonzaloHirsch/alexa-skill-movie-integrations.git"
   },
-  "author": "",
+  "author": "Gonzalo Hirsch <hirschgonzalo@gmail.com> (https://gonzalohirsch.com)",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/GonzaloHirsch/alexa-skill-movie-integrations/issues"
