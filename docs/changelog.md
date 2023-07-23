@@ -1,3 +1,10 @@
+## [1.0.7](https://github.com/GonzaloHirsch/alexa-skill-movie-integrations/compare/v1.0.6...v1.0.7) (2023-07-23)
+
+
+### Bug Fixes
+
+* missing repo url ([9494e93](https://github.com/GonzaloHirsch/alexa-skill-movie-integrations/commit/9494e934d888d81efe389853495146aa46d25f89))
+
 ## [1.0.6](https://github.com/GonzaloHirsch/alexa-skill-movie-integrations/compare/v1.0.5...v1.0.6) (2023-07-23)
 
 
