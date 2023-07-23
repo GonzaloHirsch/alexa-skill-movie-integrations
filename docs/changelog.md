@@ -1,3 +1,10 @@
+## [1.0.8](https://github.com/GonzaloHirsch/alexa-skill-movie-integrations/compare/v1.0.7...v1.0.8) (2023-07-23)
+
+
+### Bug Fixes
+
+* empty responses at launch ([c88cacb](https://github.com/GonzaloHirsch/alexa-skill-movie-integrations/commit/c88cacba2657d4d783cf9b09ec1d810eae12d561))
+
 ## [1.0.7](https://github.com/GonzaloHirsch/alexa-skill-movie-integrations/compare/v1.0.6...v1.0.7) (2023-07-23)
 
 
