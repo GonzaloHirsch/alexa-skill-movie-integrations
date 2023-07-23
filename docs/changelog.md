@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/GonzaloHirsch/alexa-skill-movie-integrations/compare/v1.0.3...v1.0.4) (2023-07-23)
+
+
+### Bug Fixes
+
+* reduced deployment package for Lambda ([483ee90](https://github.com/GonzaloHirsch/alexa-skill-movie-integrations/commit/483ee902f3b1a2b298f838cc191f933999029ce3))
+
 ## [1.0.3](https://github.com/GonzaloHirsch/alexa-skill-movie-integrations/compare/v1.0.2...v1.0.3) (2023-07-22)
 
 
