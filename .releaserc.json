@@ -14,11 +14,13 @@
                 "changelogFile": "docs/changelog.md"
             }
         ],
+        "@semantic-release/npm",
         [
             "@semantic-release/git",
             {
                 "assets": [
-                    "docs/changelog.md"
+                    "docs/changelog.md",
+                    "package.json"
                 ]
             }
         ],
