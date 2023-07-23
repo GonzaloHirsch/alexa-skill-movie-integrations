@@ -1,3 +1,10 @@
+## [1.0.6](https://github.com/GonzaloHirsch/alexa-skill-movie-integrations/compare/v1.0.5...v1.0.6) (2023-07-23)
+
+
+### Bug Fixes
+
+* test repo format ([4008275](https://github.com/GonzaloHirsch/alexa-skill-movie-integrations/commit/4008275ec6587bf8151135222746177922f45570))
+
 ## [1.0.5](https://github.com/GonzaloHirsch/alexa-skill-movie-integrations/compare/v1.0.4...v1.0.5) (2023-07-23)
 
 
