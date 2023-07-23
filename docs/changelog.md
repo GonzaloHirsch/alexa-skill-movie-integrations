@@ -1,3 +1,10 @@
+## [1.0.10](https://github.com/GonzaloHirsch/alexa-skill-movie-integrations/compare/v1.0.9...v1.0.10) (2023-07-23)
+
+
+### Bug Fixes
+
+* `package.json` not being updated ([db0e9fc](https://github.com/GonzaloHirsch/alexa-skill-movie-integrations/commit/db0e9fc4e688319c27a36162a6bafb615751e0e6))
+
 ## [1.0.9](https://github.com/GonzaloHirsch/alexa-skill-movie-integrations/compare/v1.0.8...v1.0.9) (2023-07-23)
 
 
