@@ -1,3 +1,10 @@
+## [1.0.9](https://github.com/GonzaloHirsch/alexa-skill-movie-integrations/compare/v1.0.8...v1.0.9) (2023-07-23)
+
+
+### Bug Fixes
+
+* removed extra token permissions ([202a483](https://github.com/GonzaloHirsch/alexa-skill-movie-integrations/commit/202a48341be7da71ea25df9bea5dffdaa18eb827))
+
 ## [1.0.8](https://github.com/GonzaloHirsch/alexa-skill-movie-integrations/compare/v1.0.7...v1.0.8) (2023-07-23)
 
 
