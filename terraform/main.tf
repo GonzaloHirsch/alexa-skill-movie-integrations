@@ -43,8 +43,9 @@ resource "aws_cloudwatch_log_group" "default" {
 
 # create the Alexa trigger
 resource "aws_lambda_permission" "alexa_trigger" {
-  statement_id  = "AllowExecutionFromAlexa"
-  action        = "lambda:InvokeFunction"
-  function_name = local.function_name
-  principal     = "alexa-appkit.amazon.com"
+  statement_id       = "AllowExecutionFromAlexa"
+  action             = "lambda:InvokeFunction"
+  function_name      = local.function_name
+  principal          = "alexa-appkit.amazon.com"
+  event_source_token = var.skill_id
 }

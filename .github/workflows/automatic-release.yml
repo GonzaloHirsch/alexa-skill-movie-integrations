@@ -62,6 +62,7 @@ jobs:
           TF_VAR_region: ${{ secrets.REGION }}
           TF_VAR_backend_url: ${{ secrets.BACKEND_URL }}
           TF_VAR_backend_key: ${{ secrets.BACKEND_KEY }}
+          TF_VAR_skill_id: ${{ secrets.SKILL_ID }}
 
   # As per https://github.com/semantic-release/semantic-release/blob/master/docs/recipes/ci-configurations/github-actions.md
   release:
