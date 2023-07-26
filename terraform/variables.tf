@@ -14,3 +14,7 @@ variable "backend_key" {
   type        = string
   description = "API key for the backend service."
 }
+variable "skill_id" {
+  type        = string
+  description = "ID for the skill verification."
+}
