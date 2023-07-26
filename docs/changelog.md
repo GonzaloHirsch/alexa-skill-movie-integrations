@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/GonzaloHirsch/alexa-skill-movie-integrations/compare/v1.0.11...v1.1.0) (2023-07-26)
+
+
+### Features
+
+* added skill verification in TF ([#14](https://github.com/GonzaloHirsch/alexa-skill-movie-integrations/issues/14)) ([c8e6c69](https://github.com/GonzaloHirsch/alexa-skill-movie-integrations/commit/c8e6c690fd14f8ed28b7b7ca57661c6df06d5591))
+
 ## [1.0.11](https://github.com/GonzaloHirsch/alexa-skill-movie-integrations/compare/v1.0.10...v1.0.11) (2023-07-23)
 
 
