@@ -56,7 +56,7 @@ const AskRandomMovieIntentHandler = {
 
     // Prepare the responses
     // eslint-disable-next-line prettier/prettier
-    const speechText = `${locale.MOVIE.RANDOM(movieResponse.title)}${movieResponse.overview}`;
+    const speechText = `${locale.MOVIE.RANDOM(movieResponse.title)} ${movieResponse.overview}`;
     const cardText = locale.MOVIE.RANDOM(movieResponse.title);
 
     return handlerInput.responseBuilder
