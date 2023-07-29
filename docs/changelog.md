@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/GonzaloHirsch/alexa-skill-movie-integrations/compare/v1.2.0...v1.2.1) (2023-07-29)
+
+
+### Bug Fixes
+
+* incorrect locale pronounciation ([e0c2595](https://github.com/GonzaloHirsch/alexa-skill-movie-integrations/commit/e0c259570df2156a9c673efc17973a4d946f08ae))
+
 # [1.2.0](https://github.com/GonzaloHirsch/alexa-skill-movie-integrations/compare/v1.1.0...v1.2.0) (2023-07-29)
 
 

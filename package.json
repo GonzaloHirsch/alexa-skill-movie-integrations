@@ -1,6 +1,6 @@
 {
   "name": "alexa-skill-movie-integrations",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Source code for an Alexa skill that interacts with The Movie DB API in order to provide a service to look up stream locations based on the device country.",
   "main": "src/index.js",
   "private": true,
