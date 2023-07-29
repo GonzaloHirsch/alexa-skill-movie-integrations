@@ -14,6 +14,7 @@ This guide assists in the development of an Alexa skill, focusing on the given e
   - [Intent Handler](#intent-handler)
   - [Other Files](#other-files)
 - [Skill Configuration](#skill-configuration)
+  - [Skill Testing](#skill-testing)
 - [Workflows](#workflows)
 
 ## Infrastructure
@@ -377,6 +378,10 @@ By using Terraform, the skill configuration process is simplified significantly,
     1. Within the **Build** tab, go to **CUSTOM > Endpoint**.
     2. Find the text that reads `Your Skill ID` and copy the value. It should look something like this `amzn1.ask.skill.ID_HERE`.
     3. Keep this value handy for Terraform, but don't share it.
+
+### Skill Testing
+
+You can test your skill using the Alexa Simulator. You can find it within the **Test** tab in the Alexa Developer Console. If it seems disabled, use the dropdown to set testing for development.
 
 ## Workflows
 
