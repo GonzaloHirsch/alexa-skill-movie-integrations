@@ -1,6 +1,8 @@
-# [Movie Map](https://github.com/GonzaloHirsch/alexa-skill-movie-integrations)
+# [Movie Map](https://github.com/GonzaloHirsch/alexa-skill-movie-integrations) by [Gonzalo Hirsch](https://gonzalohirsch.com)
 
 Movie Map is a handy Alexa skill that helps you find where to stream, rent, or buy movies in your country without needing to browse or search for it.
+
+If you are interested in information about development, you can find it [here](./development.md).
 
 ## Overview
 
@@ -21,8 +23,13 @@ DISCLAIMER: This skill uses a JustWatch API. All data comes from JustWatch.
 ## Example Phrases
 
 You can invoke this skill by saying:
+
 ```
 Alexa, open my movie map to find where I can stream Iron Man 2.
 Alexa, open my movie map to find where I can buy Iron Man 2.
 Alexa, open my movie map and pick a random movie.
 ```
+
+## Other Pages
+
+GitHub pages also hosts the [Privacy Policy](./privacy-policy.md) and [Terms and Conditions](./terms-and-conditions.md) for this skill.
