@@ -1,4 +1,5 @@
 const Alexa = require('ask-sdk-core');
+const locale = require('../locales/en-GB');
 
 const HelpIntentHandler = {
   canHandle(handlerInput) {
@@ -8,8 +9,7 @@ const HelpIntentHandler = {
     );
   },
   handle(handlerInput) {
-    const speechText =
-      'You can ask me where to stream, buy, or rent any movie!';
+    const speechText = locale.HELP;
     const cardText = speechText;
 
     return handlerInput.responseBuilder

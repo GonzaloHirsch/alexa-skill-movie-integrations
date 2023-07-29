@@ -10,6 +10,7 @@ const AskRentLocationIntentHandler = {
     );
   },
   async handle(handlerInput) {
+    // Use the general movie handler with RENT action
     return await movieHandler(handlerInput, ACTIONS.RENT);
   }
 };

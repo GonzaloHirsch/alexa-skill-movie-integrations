@@ -1,3 +1,4 @@
+// Exports some constants and abstracts them from the environment variables as well.
 module.exports = {
   SLOTS: {
     MOVIE_NAME: 'movie_name'

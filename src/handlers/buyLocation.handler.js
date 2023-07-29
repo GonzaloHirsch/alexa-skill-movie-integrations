@@ -10,6 +10,7 @@ const AskBuyLocationIntentHandler = {
     );
   },
   async handle(handlerInput) {
+    // Use the general movie handler with BUY action
     return await movieHandler(handlerInput, ACTIONS.BUY);
   }
 };
