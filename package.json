@@ -8,6 +8,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier --config .prettierrc 'src/**/*.js' --write",
     "lint": "npx eslint src",
+    "markdown": "cat README.md > docs/development.md",
+    "toc": "npx markdown-toc README.md --no-firsth1",
     "tf_format": "cd terraform && terraform fmt -recursive",
     "tf_lint": "cd terraform && terraform fmt -check -recursive",
     "tf_apply": "cd terraform && terraform apply -auto-approve"
@@ -63,6 +65,7 @@
     "eslint-config-google": "0.14.0",
     "eslint-config-prettier": "8.8.0",
     "eslint-plugin-prettier": "5.0.0",
+    "markdown-toc": "1.2.0",
     "prettier": "3.0.0",
     "semantic-release": "21.0.7"
   }
