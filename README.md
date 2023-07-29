@@ -299,6 +299,85 @@ Files within `src/utils` and `src/locales` are mostly utilities to help with the
 
 ## Skill Configuration
 
+By using Terraform, the skill configuration process is simplified significantly, as much of the configuration comes from the infrastructure. These are the steps to configure and release the Alexa skill:
+
+1. Create an [Amazon Developer Account](https://developer.amazon.com/en-US/docs/alexa/ask-overviews/create-developer-account.html).
+2. Sign in to the [Alexa developer console](https://developer.amazon.com/alexa/console/ask).
+3. Within the **Skills** tab, click on **Create Skill**.
+4. On the **Create a new skill** page, provide the following information:
+   1. For **Skill name**, enter `My Custom Skill` in the box.
+   2. For **Primary locale**, choose **English (US)**.
+   3. For **Choose a model to add to your skill**, choose **Custom**.
+   4. For **Choose a method to host your skill's backend resources**, choose **Alexa-hosted (Node.js)**.
+   5. In the upper-right corner, click **Create skill**.
+5. On the **Choose a template to add to your skill** page, leave the **Start from Scratch** template selected.
+6. In the upper-right corner, click **Continue with template**.
+7. Assign a skill invocation name.
+   1. On the **Build** tab, in the left pane, click **CUSTOM > Invocations > Skill Invocation Name**.
+   2. For **Skill Invocation Name**, enter `my custom skill`.
+   3. To save and build your model, click **Save Model**, and then click **Build Model**.
+   4. To deploy your skill code, open the **Code** tab, and then, in the upper-right corner, click **Deploy**.
+8. Test your skill in the Alexa simulator.
+   1. Open the **Test** tab.
+   2. To enable your skill for testing, locate **Test is disabled for this skill**, and then, from the drop-down list, select **Development**.
+   3. To test with voice, in the **Will you allow developer.amazon.com to use your microphone?** pop-up, select **Allow**.
+   4. In the **Alexa Simulator** pane, enter `open my custom skill`, but omit `Alexa` from the string Or, to use voice, click and hold the microphone, and then speak an utterance.
+   5. If the test is successful, Alexa says, `"OK."`
+   6. Repeat steps 4 and 5 for the utterances `hello`, `help`, and `cancel`.
+   7. If the skill doesn't perform as expected, see [Troubleshooting](https://developer.amazon.com/en-US/docs/alexa/custom-skills/tutorial-use-the-developer-console-to-build-your-first-alexa-skill.html#troubleshooting).
+9. Ensure that the model has no utterance conflicts (you might not see this option if there are no conflics).
+   1. Open the **Build** tab.
+   2. In the left pane, click **CUSTOM > Interaction Model > Utterance Conflicts (0)**.
+   3. If any number other than **(0)** appears next to the term **Utterance Conflicts**, click the error message for details.
+   4. [Resolve the conflicts](https://developer.amazon.com/en-US/docs/alexa/custom-skills/tutorial-use-the-developer-console-to-build-your-first-alexa-skill.html#troubleshooting), and then press **Ctrl+R** to refresh your browser window.
+   5. Repeat until you see **Utterance Conflicts (0)**.
+10. Supply metadata to your skill.
+    1. Open the **Distribution** tab.
+    2. On the **English (US) Store Preview** page, in the **Public Name** box, enter `My Custom Skill`.
+    3. In the **One Sentence Description** box, enter the appropriate text.
+    4. In the **Detailed description** box, enter the appropriate text.
+    5. Leave the **What's New** box blank.
+    6. In the **Example Phrase 101** pane, click **More**.
+    7. One by one, enter the example launch phrases. After each entry, to add a new phrase, click the plus sign (+). Some examples could be `Alexa, open my custom skill`, `Alexa, ask my custom skill to start`, or `Alexa, launch my custom skill`.
+    8. In the **Category** box, choose **Social > Communication**.
+    9. In the **Keywords** box, enter some appropriate keywords.
+11. Add a custom icon. _(optional)_
+    1. If you don't have logo art of your own, use the free [Alexa Icon Builder](https://developer.amazon.com/docs/tools/icon-builder.html) to create it.
+    2. In a new browser tab, open the Alexa Icon Builder.
+    3. In the keyword search box, search for an icon and select it.
+    4. In the **Icon** menu at right, to open the color window, click the box next to **Icon**.
+    5. To set the icon color, click **Solid color**, and then click to choose a color.
+    6. Click anywhere to close the color selector.
+    7. To choose a background color, click the box next to **Icon background**, click **Solid color**, and then click to choose a color.
+    8. To choose a border color, click the box next to **Icon border**, click **Solid color**, and then click to choose a color. Or, to remove the border, move the slider to the left.
+    9. To add an icon shadow, click the box next to **Icon shadow**, and then click to choose a color. Or, to remove the shadow, move the slider to the left.
+    10. To download the icons in two sizes, click **Download**. Alexa creates logo files for you in the correct sizes, and then stores them in a .zip file.
+    11. On your computer, unzip the images file.
+    12. In the developer console, open **Distribution > Skill Preview**.
+    13. Drag each icon file into its designated space.
+    14. Click Save and continue, and then view your finished icons.
+12. Supply privacy, terms of use, compliance, and availability data for your skill.
+    1. Open the **Distribution** tab.
+    2. Click **Skill Preview > English (US)**.
+    3. In the **Privacy Policy URL** box, if you have a privacy policy, enter a URL, or if you don't, leave the box blank. A privacy policy is optional unless your skill links to users' accounts or collects user information. This skill does not.
+    4. In the **Terms of Use URL** box, if you have a terms of use agreement, enter a URL, or if you don't, leave the box blank. A terms of use agreement is optional. If you do require consent to such an agreement, however, you must supply it separately for each locale.
+    5. On the **Distribution** tab, click **Privacy & Compliance**.
+    6. Answer each question appropriately.
+    7. Select the **Export Compliance** check box.
+    8. In the **Testing Instructions** box, enter the following lines.
+    ```
+    System requirements: None
+    To begin, say "Alexa, open Hello World."
+    ```
+    9. Click **Save and continue**.
+13. Enable permissions to ask for the device location.
+    1. Within the **Build** tab, go to **TOOLS > Permissions**.
+    2. Find the option that reads `Country/Region & Postal Code Only` and check it.
+14. Copy the **Skill ID** for the Lambda Function. Your Lambda trigger will use skill verification, you need the Skill ID for this.
+    1. Within the **Build** tab, go to **CUSTOM > Endpoint**.
+    2. Find the text that reads `Your Skill ID` and copy the value. It should look something like this `amzn1.ask.skill.ID_HERE`.
+    3. Keep this value handy for Terraform, but don't share it.
+
 ## Workflows
 
 This repository contains 3 main workflows:
