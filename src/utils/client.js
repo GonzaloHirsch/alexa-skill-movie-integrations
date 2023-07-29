@@ -66,7 +66,7 @@ const getMovieLocation = async (movieId, country, action) => {
   return await client
     .get(`movie/${movieId}/watch/providers`)
     .then((response) => {
-      console.debug(response.data)
+      console.debug(response.data);
       // Depending on the action, we look for different parts of the response.
       switch (action) {
         case constants.ACTIONS.BUY:
