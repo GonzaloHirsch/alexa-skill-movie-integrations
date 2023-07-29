@@ -10,10 +10,11 @@ const LaunchRequestHandler = {
     );
   },
   handle(handlerInput) {
-    console.log(util.inspect(handlerInput.requestEnvelope, true, null, false));
+    console.debug(
+      util.inspect(handlerInput.requestEnvelope, true, null, false)
+    );
     const speechText = locale.LAUNCH[getRandom(0, 3)];
     const cardText = speechText;
-    console.log(speechText, locale);
 
     // Store as session opened
     const sessionAttributes =

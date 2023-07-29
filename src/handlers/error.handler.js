@@ -1,16 +1,20 @@
 const util = require('util');
+const locale = require('../locales/en-GB');
 
 const ErrorHandler = {
   canHandle() {
     return true;
   },
   handle(handlerInput, error) {
-    console.log(`Error handled: ${error.message}`);
-    console.log(util.inspect(handlerInput.requestEnvelope, true, null, false));
+    console.error(`Error handled: ${error.message}`);
+    // Inspect the request to be able to debug for errors.
+    console.error(
+      util.inspect(handlerInput.requestEnvelope, true, null, false)
+    );
 
     return handlerInput.responseBuilder
-      .speak("Sorry, I don't understand your command. Please say it again.")
-      .reprompt("Sorry, I don't understand your command. Please say it again.")
+      .speak(locale.ERROR.NO_UNDERSTAND)
+      .reprompt(locale.ERROR.NO_UNDERSTAND)
       .getResponse();
   }
 };

@@ -10,6 +10,7 @@ const AskStreamLocationIntentHandler = {
     );
   },
   async handle(handlerInput) {
+    // Use the general movie handler with STREAM action
     return await movieHandler(handlerInput, ACTIONS.STREAM);
   }
 };

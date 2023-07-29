@@ -1,6 +1,7 @@
 const Alexa = require('ask-sdk-core');
 const util = require('util');
 const constants = require('../utils/constants');
+const locale = require('../locales/en-GB');
 const { searchMovie, getMovieLocation } = require('../utils/client');
 const { getCountryCode } = require('../utils/alexa');
 const { prepareMovieList } = require('../utils/responses');
@@ -9,7 +10,7 @@ const movieHandler = async (
   handlerInput,
   action = constants.ACTIONS.STREAM
 ) => {
-  console.log(
+  console.debug(
     action,
     util.inspect(handlerInput.requestEnvelope, true, null, false)
   );
@@ -23,8 +24,8 @@ const movieHandler = async (
   );
   if (!targetMovie)
     return handlerInput.responseBuilder
-      .speak('Sorry, I need a movie to search for you. Please say it again.')
-      .reprompt('Sorry, I need a movie to search for you. Please say it again.')
+      .speak(locale.ERROR.NO_MOVIE)
+      .reprompt(locale.ERROR.NO_MOVIE)
       .withShouldEndSession(!sessionAttributes.keepSessionOpen)
       .getResponse();
 
@@ -34,12 +35,8 @@ const movieHandler = async (
   if (movieResponse.status !== 200 || movieResponse.data.total_results <= 0) {
     console.error(`Error response: ${movieResponse}`);
     return handlerInput.responseBuilder
-      .speak(
-        'Sorry, there was an error looking for that movie. Please say it again.'
-      )
-      .reprompt(
-        'Sorry, there was an error looking for that movie. Please say it again.'
-      )
+      .speak(locale.ERROR.NOT_FOUND_MOVIE)
+      .reprompt(locale.ERROR.NOT_FOUND_MOVIE)
       .withShouldEndSession(!sessionAttributes.keepSessionOpen)
       .getResponse();
   }
@@ -61,22 +58,14 @@ const movieHandler = async (
   console.log(util.inspect(streamResponse, true, null, false));
   if (!streamResponse) {
     return handlerInput.responseBuilder
-      .speak(
-        `Sorry, I couldn't find any services for ${apiMovie.title}. Please try another movie.`
-      )
-      .reprompt(
-        `Sorry, I couldn't find any services for ${apiMovie.title}. Please try another movie.`
-      )
+      .speak(locale.ERROR.NO_SERVICES(apiMovie.title))
+      .reprompt(locale.ERROR.NO_SERVICES(apiMovie.title))
       .withShouldEndSession(!sessionAttributes.keepSessionOpen)
       .getResponse();
   } else if (streamResponse.length <= 0) {
     return handlerInput.responseBuilder
-      .speak(
-        `Sorry, it seems like right now you cannot stream ${apiMovie.title}. Maybe try another movie?.`
-      )
-      .reprompt(
-        `Sorry, it seems like right now you cannot stream ${apiMovie.title}. Maybe try another movie?.`
-      )
+      .speak(locale.ERROR.NO_STREAM(apiMovie.title))
+      .reprompt(locale.ERROR.NO_STREAM(apiMovie.title))
       .withShouldEndSession(!sessionAttributes.keepSessionOpen)
       .getResponse();
   }

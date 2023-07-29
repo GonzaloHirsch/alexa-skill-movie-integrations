@@ -1,5 +1,6 @@
 const Alexa = require('ask-sdk-core');
 const util = require('util');
+const locale = require('../locales/en-GB');
 const { getMovie } = require('../utils/client');
 
 const AskRandomMovieIntentHandler = {
@@ -10,7 +11,10 @@ const AskRandomMovieIntentHandler = {
     );
   },
   async handle(handlerInput) {
-    console.log(util.inspect(handlerInput.requestEnvelope, true, null, false));
+    // Log the request for debugging purposes
+    console.debug(
+      util.inspect(handlerInput.requestEnvelope, true, null, false)
+    );
     const sessionAttributes =
       handlerInput.attributesManager.getSessionAttributes();
 
@@ -19,12 +23,15 @@ const AskRandomMovieIntentHandler = {
       currentTry = 0,
       randomMovieId = 0,
       movieResponse = null;
+
+    // Iterate until we find a movie
+    // No need for something like exponential backoff because errors shouldn't come from this.
     while (!foundMovie && currentTry <= 5) {
       // Generate a random ID
       randomMovieId = Math.floor(Math.random() * 1100000) + 1;
       // Look for that movie
       movieResponse = await getMovie(randomMovieId);
-      console.log(
+      console.debug(
         `Try ${currentTry} for movie ${randomMovieId}. Got ${util.inspect(
           movieResponse,
           true,
@@ -41,19 +48,16 @@ const AskRandomMovieIntentHandler = {
     if (!foundMovie) {
       console.error(`Didn't find a random movie, tried ${currentTry} times.`);
       return handlerInput.responseBuilder
-        .speak(
-          `Sorry, I couldn't find a suitable movie right now. Please try again later.`
-        )
-        .reprompt(
-          `Sorry, I couldn't find a suitable movie right now. Please try again later.`
-        )
+        .speak(locale.ERROR.NO_RANDOM_MOVIE)
+        .reprompt(locale.ERROR.NO_RANDOM_MOVIE)
         .withShouldEndSession(!sessionAttributes.keepSessionOpen)
         .getResponse();
     }
 
     // Prepare the responses
-    const speechText = `I found a movie for you! The movie is ${movieResponse.title}. ${movieResponse.overview}`;
-    const cardText = `I found a movie for you! The movie is ${movieResponse.title}.`;
+    // eslint-disable-next-line prettier/prettier
+    const speechText = `${locale.MOVIE.RANDOM(movieResponse.title)}${movieResponse.overview}`;
+    const cardText = locale.MOVIE.RANDOM(movieResponse.title);
 
     return handlerInput.responseBuilder
       .speak(speechText)

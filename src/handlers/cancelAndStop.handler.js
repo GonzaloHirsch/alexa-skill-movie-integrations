@@ -1,17 +1,17 @@
 const Alexa = require('ask-sdk-core');
+const locale = require('../locales/en-GB');
 
 const CancelAndStopIntentHandler = {
   canHandle(handlerInput) {
+    const envelope = handlerInput.requestEnvelope;
     return (
-      Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest' &&
-      (Alexa.getIntentName(handlerInput.requestEnvelope) ===
-        'AMAZON.CancelIntent' ||
-        Alexa.getIntentName(handlerInput.requestEnvelope) ===
-          'AMAZON.StopIntent')
+      Alexa.getRequestType(envelope) === 'IntentRequest' &&
+      (Alexa.getIntentName(envelope) === 'AMAZON.CancelIntent' ||
+        Alexa.getIntentName(envelope) === 'AMAZON.StopIntent')
     );
   },
   handle(handlerInput) {
-    const speechText = 'Goodbye! Enjoy your movie!';
+    const speechText = locale.GOODBYE;
     const cardText = speechText;
 
     return handlerInput.responseBuilder
