@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/GonzaloHirsch/alexa-skill-movie-integrations/compare/v1.1.0...v1.2.0) (2023-07-29)
+
+
+### Features
+
+* added locale source for strings ([#15](https://github.com/GonzaloHirsch/alexa-skill-movie-integrations/issues/15)) ([ecf390b](https://github.com/GonzaloHirsch/alexa-skill-movie-integrations/commit/ecf390b0f83630793ac21f4106a03d562fc4ee01))
+
 # [1.1.0](https://github.com/GonzaloHirsch/alexa-skill-movie-integrations/compare/v1.0.11...v1.1.0) (2023-07-26)
 
 
